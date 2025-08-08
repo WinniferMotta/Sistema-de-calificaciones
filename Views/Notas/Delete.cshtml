@@ -1,0 +1,13 @@
+﻿@model Nota
+
+<h2>¿Estás seguro que deseas eliminar esta calificación?</h2>
+
+<p><strong>Estudiante:</strong> @Model.Estudiante.Nombre</p>
+<p><strong>Materia:</strong> @Model.Materia.Nombre</p>
+<p><strong>Total:</strong> @Model.Total</p>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="NotasID" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

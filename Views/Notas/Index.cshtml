@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Nota>
+
+<h2>Lista de Notas</h2>
+
+<a asp-action="Create" class="btn btn-primary">Agregar Nueva</a>
+<a asp-action="ExportarCSV" class="btn btn-success">Exportar a CSV</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Estudiante</th>
+            <th>Materia</th>
+            <th>Promedio</th>
+            <th>Examen</th>
+            <th>Total</th>
+            <th>Clasificación</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Estudiante.Nombre</td>
+                <td>@item.Materia.Nombre</td>
+                <td>@((item.Cal1 + item.Cal2 + item.Cal3 + item.Cal4) / 4)</td>
+                <td>@item.Examen</td>
+                <td>@item.Total</td>
+                <td>@item.Clasificacion</td>
+                <td>@item.Estado</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.NotasID">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.NotasID">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.NotasID">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

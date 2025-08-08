@@ -1,0 +1,29 @@
+﻿@model Nota
+
+<h2>Agregar Calificación</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label>Estudiante</label>
+        <select asp-for="EstudianteID" asp-items="ViewBag.EstudianteID" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label>Materia</label>
+        <select asp-for="MateriaID" asp-items="ViewBag.MateriaID" class="form-control"></select>
+    </div>
+
+    @for (int i = 1; i <= 4; i++)
+    {
+        <div class="form-group">
+            <label>Calificación @i</label>
+            <input asp-for="@Model.GetType().GetProperty($"Cal{i}").Name" class="form-control" />
+        </div>
+    }
+
+    <div class="form-group">
+        <label>Examen</label>
+        <input asp-for="Examen" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

@@ -1,0 +1,14 @@
+﻿@model Nota
+
+<h2>Detalles de Calificación</h2>
+
+<p><strong>Estudiante:</strong> @Model.Estudiante.Nombre</p>
+<p><strong>Materia:</strong> @Model.Materia.Nombre</p>
+<p><strong>Promedio:</strong> @((Model.Cal1 + Model.Cal2 + Model.Cal3 + Model.Cal4) / 4)</p>
+<p><strong>Examen:</strong> @Model.Examen</p>
+<p><strong>Total:</strong> @Model.Total</p>
+<p><strong>Clasificación:</strong> @Model.Clasificacion</p>
+<p><strong>Estado:</strong> @Model.Estado</p>
+
+<a asp-action="Editar" asp-route-id="@Model.NotasID">Editar</a> |
+<a asp-action="Index">Volver</a>
